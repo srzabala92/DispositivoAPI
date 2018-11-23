@@ -1,0 +1,287 @@
+openapi: 3.0.1
+info:
+  title: "API Dispositivo - AsistEx FallDetector"
+  version: '1.0.0'
+  termsOfService: ''
+  contact:
+    name: AsistEx FallDetector - Device API
+    url: ''
+    email: info@asistex.es
+servers:
+  - url: ''
+    description: Servidor central AsistEx
+paths:
+  /bateria:
+    get:
+      tags:
+        - Bateria
+      summary: Estado de la Bateria
+      description: "Informacion sobre el nivel de carga y el tiempo restante de la bateria"
+      responses:
+        '200':
+          description: Nivel de Batería
+          content:
+            application/json:
+              schema: 
+                type: array
+                items:
+                  $ref: '#/components/schemas/NivelBateria'
+  '/localizacion/{idPersona}':
+      post:
+        tags:
+          - Localizacion
+        summary: "Publicar localización de un usuario"
+        description: "Publicar localización de usuario en tiempo real"
+        parameters:
+          - name: idPersona
+            in: path
+            description: "Id de la Persona del que añadir localización"
+            required: true
+            schema:
+              type: string
+        requestBody:
+          required: true
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Localizacion'
+        responses:
+          '200':
+            $ref: '#/components/responses/200'
+      get: 
+        tags:
+          - Localizacion
+        summary: "Obtener localizacion de persona"
+        description: "Obtener localizacion de una persona en tiempo real."
+        parameters:
+          - name: idPersona
+            in: path
+            description: "Id de la Persona del que añadir localización"
+            required: true
+            schema:
+              type: string
+        responses:
+          '200':
+            description: "Localizacion del usuario"
+            content:
+              application/json:
+                schema:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/Localizacion'
+          '403':
+            $ref: '#/components/responses/403'
+          '404':
+            $ref: '#/components/responses/404'
+          '503':
+            $ref: '#/components/responses/503'
+          default:
+            $ref: '#/components/responses/DefaultError'
+  '/contacto/{idPersona}':
+      post:
+        tags:
+          - Contacto 
+        summary: "Publicar info de contacto"
+        description: "Añadir la información de contacto de un usuario dado su id"
+        parameters:
+          - name: idPersona
+            in: path
+            description: "Id de la Persona del que añadir localización"
+            required: true
+            schema:
+              type: string
+        requestBody:
+          required: true
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Contacto'
+        responses:
+          '200':
+            $ref: '#/components/responses/200'
+          '201':
+            $ref: '#/components/responses/201'
+          '403':
+            $ref: '#/components/responses/403'
+          '404':
+            $ref: '#/components/responses/404'
+          '503':
+            $ref: '#/components/responses/503'
+          default:
+            $ref: '#/components/responses/DefaultError'
+      put:
+        tags:
+          - Contacto 
+        summary: "Actualizar info de contacto"
+        description: "Actualizar la información de contacto de un usuario dado su id"
+        parameters:
+          - name: idPersona
+            in: path
+            description: "Id de la Persona del que añadir localización"
+            required: true
+            schema:
+              type: string
+        requestBody:
+          required: true
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Contacto'
+        responses:
+          '200':
+            $ref: '#/components/responses/200'
+          '201':
+            $ref: '#/components/responses/201'
+          '403':
+            $ref: '#/components/responses/403'
+          '404':
+            $ref: '#/components/responses/404'
+          '503':
+            $ref: '#/components/responses/503'
+          default:
+            $ref: '#/components/responses/DefaultError'
+  '/zonas/{idPersona}':
+      get:
+        tags:
+          - Zonas 
+        summary: "Obtener lista zonas"
+        description: "Obtener lista de zonas de una determinada persona."
+        parameters:
+          - name: idPersona
+            in: path
+            description: "Id de la Persona del que añadir localización"
+            required: true
+            schema:
+              type: string
+        responses:
+          '200':
+            description: "Zonas pertenecientes a la persona"
+            content:
+              application/json:
+                schema:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/Zona'
+          '201':
+            $ref: '#/components/responses/201'
+          '403':
+            $ref: '#/components/responses/403'
+          '404':
+            $ref: '#/components/responses/404'
+          '503':
+            $ref: '#/components/responses/503'
+          default:
+            $ref: '#/components/responses/DefaultError'
+components:
+  responses:
+    '200':
+      description: "Operación realizada con éxito"
+      content:
+        text/plain:
+          schema:
+            title: "Operación correcta"
+            type: string
+            example: "La operación se ha llevado a cabo con éxito"
+    '201':
+      description: "Recurso creado con éxito"
+      content:
+        text/plain:
+          schema:
+            title: "Recurso creado"
+            type: string
+            example: "El recurso se ha creado correctamente."
+    '403':
+      description: "Accioń No Permitida"
+      content:
+        text/plain:
+          schema:
+            title: "Acción no permitida"
+            type: string
+            example: "La acción que intenta realizar no está permitida."
+    '404':
+      description: "Recurso no encontrado"
+      content:
+        text/plain:
+          schema:
+            title: "El elemento no existe en el sistema"
+            type: string
+            example: "Intenta acceder a un recurso inexistente."
+    '503':
+      description: "El servidor no se encuentra disponible"
+      content:
+        text/plain:
+          schema:
+            title: "Servidor AsistEx no disponible"
+            type: "string"
+            example: "El servidor AsistEx no se encuentra disponible en este momento."
+    DefaultError:
+        description: "Error"
+        content: 
+          text/plain:
+            schema:
+              title: "Error en la operación"
+              type: string
+              example: "Ha oucrrido un error al realizar la operación"
+  schemas:
+    NivelBateria:
+      type: object
+      properties:
+        porcentaje:
+          type: integer
+          format: int64
+          example: 80
+        tiempoRestante:
+          type: string
+          format: time
+          example: '5:30'
+    Localizacion:
+      type: object
+      properties:
+        latitud:
+          type: number
+          format: float
+          example: 38.5146304
+        longitud:
+          type: number
+          format: float
+          example: '-6.8490971,18'
+    Zona:
+      type: object
+      properties:
+        idZona:
+          type: integer
+          format: int64
+        idPersona:
+          type: integer
+          format: int64
+        nombre:
+          type: string
+          example: "Zona diurna"
+        centro:
+          $ref: '#/components/schemas/Localizacion'
+        radio:
+          type: integer
+          format: int32
+        horaIni:
+          type: string
+          format: time
+          example: '07:30'
+        horaFin:
+          type: string
+          format: time
+          example: '19:30'
+    Contacto:
+      type: object
+      properties:
+          nombre:
+            type: string
+            example: "Jorge"
+          apellidos:
+            type: string
+            example: "Garcia Perez"
+          direccion:
+            type: string
+            example: "Avenida de Extremadura 26"
+          telefono:
+            type: string
+            example: "699123123"
