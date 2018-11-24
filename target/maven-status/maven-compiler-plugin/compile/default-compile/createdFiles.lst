@@ -1,4 +1,5 @@
 io/swagger/model/Zona.class
+io/swagger/api/impl/LocalizacionApiServiceImpl$LocationList.class
 io/swagger/api/factories/ZonasApiServiceFactory.class
 io/swagger/api/RFC3339DateFormat.class
 io/swagger/api/StringUtil.class
@@ -21,6 +22,7 @@ io/swagger/api/BateriaApi.class
 io/swagger/api/NotFoundException.class
 io/swagger/api/Bootstrap.class
 io/swagger/api/impl/BateriaApiServiceImpl.class
+io/swagger/api/impl/ZonasApiServiceImpl$ZoneList.class
 io/swagger/api/LocalizacionApi.class
 io/swagger/api/factories/LocalizacionApiServiceFactory.class
 io/swagger/api/BateriaApiService.class

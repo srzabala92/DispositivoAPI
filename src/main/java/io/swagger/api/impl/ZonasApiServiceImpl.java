@@ -5,7 +5,6 @@ import io.swagger.model.*;
 
 import io.swagger.model.Zona;
 
-
 import java.util.Map;
 import java.util.HashMap;
 import java.util.List;
@@ -31,7 +30,7 @@ public class ZonasApiServiceImpl extends ZonasApiService {
     **/
     public class ZoneList {
         private Map<String,ArrayList<Zona>> zones = new HashMap<String,ArrayList<Zona>>();
-        //Initialize zone l ist with zones for user ids 1-5
+        //Initialize zone list with zones for user ids 1-5
         public ZoneList(){
             //Zone List User #1
             ArrayList<Zona> zonasUser = new ArrayList<Zona>();
@@ -69,7 +68,7 @@ public class ZonasApiServiceImpl extends ZonasApiService {
     
     @Override
     public Response zonasIdPersonaGet(String idPersona, SecurityContext securityContext) throws NotFoundException {
-        ArrayList<Zona> userZones = allZones.getUserZones(idPersona);
+        ArrayList<Zona> userZones = allZones.getUserZones(idPersona);//Zone list for chosen user id
         if (userZones != null) //If user zone list is on system
             return Response.status(200).entity(userZones).build();
         else //If this list doesn't occur

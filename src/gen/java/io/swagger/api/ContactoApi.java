@@ -83,7 +83,7 @@ public class ContactoApi  {
         return delegate.contactoIdPersonaPost(body,idPersona,securityContext);
     }
 
-    @PUT
+   /* @PUT
     @Path("/{idPersona}")
     @Consumes({ "application/json" })
     
@@ -105,7 +105,7 @@ public class ContactoApi  {
 ,@Context SecurityContext securityContext)
     throws NotFoundException {
         return delegate.contactoIdPersonaPut(body,idPersona,securityContext);
-    }
+    }*/
 
 }
 

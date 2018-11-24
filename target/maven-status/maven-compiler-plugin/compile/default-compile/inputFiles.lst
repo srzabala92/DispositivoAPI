@@ -5,9 +5,9 @@
 /projects/DispositivoAPI/src/gen/java/io/swagger/api/RFC3339DateFormat.java
 /projects/DispositivoAPI/src/main/java/io/swagger/api/factories/ZonasApiServiceFactory.java
 /projects/DispositivoAPI/src/main/java/io/swagger/api/Bootstrap.java
+/projects/DispositivoAPI/src/gen/java/io/swagger/api/ApiOriginFilter.java
 /projects/DispositivoAPI/src/gen/java/io/swagger/api/ApiResponseMessage.java
 /projects/DispositivoAPI/src/gen/java/io/swagger/api/ZonasApiService.java
-/projects/DispositivoAPI/src/gen/java/io/swagger/api/ApiOriginFilter.java
 /projects/DispositivoAPI/src/main/java/io/swagger/api/impl/ZonasApiServiceImpl.java
 /projects/DispositivoAPI/src/gen/java/io/swagger/api/BateriaApiService.java
 /projects/DispositivoAPI/src/gen/java/io/swagger/api/NotFoundException.java
