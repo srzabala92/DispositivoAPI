@@ -44,19 +44,19 @@ public class Zona   {
   
   
   
-  private Long idZona = null;
+  private String idZona = null;
   
 
   
     
       
   
-  @JsonProperty("idPersona")
+  //@JsonProperty("idPersona")
   
   
   
   
-  private Long idPersona = null;
+  //private String idPersona = null;
   
 
   
@@ -107,9 +107,15 @@ public class Zona   {
   private String horaIni = null;
   
 
-  
-    
-      
+  /** Class constructor with all parameters **/
+  public Zona(String idZona, String nombre, Localizacion loc, Integer radio, String horaIni, String horaFin){
+      this.idZona = idZona;
+      this.nombre = nombre;
+      this.centro = loc;
+      this.radio = radio;
+      this.horaIni = horaIni;
+      this.horaFin = horaFin;
+  }
   
   @JsonProperty("horaFin")
   
@@ -122,7 +128,7 @@ public class Zona   {
   
   
   
-  public Zona idZona(Long idZona) {
+  public Zona idZona(String idZona) {
     this.idZona = idZona;
     return this;
   }
@@ -145,22 +151,22 @@ public class Zona   {
   
   @ApiModelProperty(value = "")
 
-  public Long getIdZona() {
+  public String getIdZona() {
     return idZona;
   }
   
 
-  public void setIdZona(Long idZona) {
+  public void setIdZona(String idZona) {
     this.idZona = idZona;
   }
   
 
   
   
-  public Zona idPersona(Long idPersona) {
+  /*public Zona idPersona(String idPersona) {
     this.idPersona = idPersona;
     return this;
-  }
+  }*/
   
   
 
@@ -176,19 +182,19 @@ public class Zona   {
    **/
  
   
-  @JsonProperty("idPersona")
+  /*@JsonProperty("idPersona")
   
   @ApiModelProperty(value = "")
 
-  public Long getIdPersona() {
+  public String getIdPersona() {
     return idPersona;
   }
   
 
-  public void setIdPersona(Long idPersona) {
+  public void setIdPersona(String idPersona) {
     this.idPersona = idPersona;
   }
-  
+  */
 
   
   
@@ -378,7 +384,7 @@ public class Zona   {
     }
     Zona zona = (Zona) o;
     return Objects.equals(this.idZona, zona.idZona) &&
-        Objects.equals(this.idPersona, zona.idPersona) &&
+        //Objects.equals(this.idPersona, zona.idPersona) &&
         Objects.equals(this.nombre, zona.nombre) &&
         Objects.equals(this.centro, zona.centro) &&
         Objects.equals(this.radio, zona.radio) &&
@@ -388,7 +394,7 @@ public class Zona   {
 
   @Override
   public int hashCode() {
-    return Objects.hash(idZona, idPersona, nombre, centro, radio, horaIni, horaFin);
+    return Objects.hash(idZona, nombre, centro, radio, horaIni, horaFin);
   }
 
 
@@ -400,7 +406,7 @@ public class Zona   {
     sb.append("class Zona {\n");
     
     sb.append("    idZona: ").append(toIndentedString(idZona)).append("\n");
-    sb.append("    idPersona: ").append(toIndentedString(idPersona)).append("\n");
+    //sb.append("    idPersona: ").append(toIndentedString(idPersona)).append("\n");
     sb.append("    nombre: ").append(toIndentedString(nombre)).append("\n");
     sb.append("    centro: ").append(toIndentedString(centro)).append("\n");
     sb.append("    radio: ").append(toIndentedString(radio)).append("\n");
