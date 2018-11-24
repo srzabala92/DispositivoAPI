@@ -43,7 +43,7 @@ public class Localizacion   {
   
   
   
-  private Float latitud = null;
+  private double latitud = 0.0000;
   
 
   
@@ -55,19 +55,23 @@ public class Localizacion   {
   
   
   
-  private Float longitud = null;
+  private double longitud = 0.0000;
   
 
   
   
   
-  public Localizacion latitud(Float latitud) {
+  public Localizacion latitud(double latitud) {
     this.latitud = latitud;
     return this;
   }
   
   
-
+ /** Parametrized constructor for 'Localizacion' class**/
+   public Localizacion(double latitud, double longitud) {
+     this.latitud = latitud;
+     this.longitud = longitud;
+   }
   
   /**
   
@@ -84,19 +88,19 @@ public class Localizacion   {
   
   @ApiModelProperty(example = "38.5146304", value = "")
 
-  public Float getLatitud() {
+  public double getLatitud() {
     return latitud;
   }
   
 
-  public void setLatitud(Float latitud) {
+  public void setLatitud(double latitud) {
     this.latitud = latitud;
   }
   
 
   
   
-  public Localizacion longitud(Float longitud) {
+  public Localizacion longitud(double longitud) {
     this.longitud = longitud;
     return this;
   }
@@ -119,12 +123,12 @@ public class Localizacion   {
   
   @ApiModelProperty(value = "")
 
-  public Float getLongitud() {
+  public double getLongitud() {
     return longitud;
   }
   
 
-  public void setLongitud(Float longitud) {
+  public void setLongitud(double longitud) {
     this.longitud = longitud;
   }
   

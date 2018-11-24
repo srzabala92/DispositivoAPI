@@ -25,7 +25,7 @@ public abstract class ContactoApiService {
     
     public abstract Response contactoIdPersonaPost(Contacto body,String idPersona,SecurityContext securityContext) throws NotFoundException;
     
-    public abstract Response contactoIdPersonaPut(Contacto body,String idPersona,SecurityContext securityContext) throws NotFoundException;
+    //public abstract Response contactoIdPersonaPut(Contacto body,String idPersona,SecurityContext securityContext) throws NotFoundException;
     
 }
 

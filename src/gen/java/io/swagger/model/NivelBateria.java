@@ -43,7 +43,7 @@ public class NivelBateria   {
   
   
   
-  private Long porcentaje = null;
+  private double porcentaje = 0.0;
   
 
   
@@ -58,10 +58,13 @@ public class NivelBateria   {
   private String tiempoRestante = null;
   
 
+  public NivelBateria(double porcentaje, String tmpRest) {
+    this.porcentaje = porcentaje;
+    tiempoRestante = tmpRest;
+  }
   
   
-  
-  public NivelBateria porcentaje(Long porcentaje) {
+  public NivelBateria porcentaje(double porcentaje) {
     this.porcentaje = porcentaje;
     return this;
   }
@@ -84,12 +87,12 @@ public class NivelBateria   {
   
   @ApiModelProperty(example = "80", value = "")
 
-  public Long getPorcentaje() {
+  public double getPorcentaje() {
     return porcentaje;
   }
   
 
-  public void setPorcentaje(Long porcentaje) {
+  public void setPorcentaje(double porcentaje) {
     this.porcentaje = porcentaje;
   }
   
@@ -158,8 +161,8 @@ public class NivelBateria   {
     StringBuilder sb = new StringBuilder();
     sb.append("class NivelBateria {\n");
     
-    sb.append("    porcentaje: ").append(toIndentedString(porcentaje)).append("\n");
-    sb.append("    tiempoRestante: ").append(toIndentedString(tiempoRestante)).append("\n");
+    sb.append("    porcentaje: ").append(toIndentedString(porcentaje)).append("(%) \n");
+    sb.append("    tiempoRestante: ").append(toIndentedString(tiempoRestante)).append("(h:m) \n");
     sb.append("}");
     return sb.toString();
   }
